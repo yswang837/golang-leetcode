@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(QuickSort([]int{4, 2, 3, 4, 5, 65, 45, 5, 6, 67, 6, 3, 5, 43, 2}))
+	fmt.Println(QuickSort([]int{4, 2, 3, 4, 5, 65, 45, 5, 6, 67, 6, 3, 5, 43, 17}))
 }
 
 func QuickSort(nums []int) []int {
