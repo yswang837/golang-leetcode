@@ -24,15 +24,15 @@ func quickSort(nums []int, start, end int) {
 
 func partition(nums []int, start, end int) int {
 	povitVal := nums[end]
-	i := start
+	povitIndex := start
 	for j := start; j < end; j++ {
 		if nums[j] < povitVal {
-			swap(nums, i, j)
-			i++
+			swap(nums, povitIndex, j)
+			povitIndex++
 		}
 	}
-	swap(nums, i, end)
-	return i
+	swap(nums, povitIndex, end)
+	return povitIndex
 }
 
 func swap(nums []int, i, j int) {
