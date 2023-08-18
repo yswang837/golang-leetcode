@@ -16,9 +16,9 @@ func QuickSort(nums []int) []int {
 
 func quickSort(nums []int, start, end int) {
 	if start < end {
-		povit := partition(nums, start, end)
-		quickSort(nums, start, povit-1)
-		quickSort(nums, povit+1, end)
+		povitIndex := partition(nums, start, end)
+		quickSort(nums, start, povitIndex-1)
+		quickSort(nums, povitIndex+1, end)
 	}
 }
 
@@ -27,7 +27,7 @@ func partition(nums []int, start, end int) int {
 	povitIndex := start
 	for j := start; j < end; j++ {
 		if nums[j] < povitVal {
-			swap(nums, povitIndex, j)
+			swap(nums, j, povitIndex)
 			povitIndex++
 		}
 	}
