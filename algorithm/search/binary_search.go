@@ -8,27 +8,16 @@ func main() {
 
 // Search 二分搜索最常用模板
 func Search(nums []int, target int) int {
-	// 1、初始化start、end
-	start := 0
-	end := len(nums) - 1
-	// 2、处理for循环
-	for start+1 < end {
-		mid := start + (end-start)/2
-		// 3、比较a[mid]和target值
+	low, high := 0, len(nums)-1
+	for low <= high {
+		mid := (high + low) / 2
 		if nums[mid] == target {
-			end = mid
-		} else if nums[mid] < target {
-			start = mid
+			return mid
 		} else if nums[mid] > target {
-			end = mid
+			high = mid - 1
+		} else if nums[mid] < target {
+			low = mid + 1
 		}
-	}
-	// 4、最后剩下两个元素，手动判断
-	if nums[start] == target {
-		return start
-	}
-	if nums[end] == target {
-		return end
 	}
 	return -1
 }
