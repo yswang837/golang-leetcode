@@ -12,7 +12,6 @@ func QuickSort(nums []int) []int {
 	}
 	quickSort(nums, 0, len(nums)-1)
 	return nums
-
 }
 
 func quickSort(nums []int, start, end int) {
@@ -24,10 +23,10 @@ func quickSort(nums []int, start, end int) {
 }
 
 func partition(nums []int, start, end int) int {
-	povit := nums[end]
+	povitVal := nums[end]
 	i := start
 	for j := start; j < end; j++ {
-		if nums[j] < povit {
+		if nums[j] < povitVal {
 			swap(nums, i, j)
 			i++
 		}
