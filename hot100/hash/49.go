@@ -1,7 +1,5 @@
 //https://leetcode.cn/problems/group-anagrams/description/?envType=study-plan-v2&envId=top-100-liked
 
-import "sort"
-
 func groupAnagrams(strs []string) [][]string {
 	ret := [][]string{}
 	if len(strs) == 0 {
@@ -21,7 +19,6 @@ func groupAnagrams(strs []string) [][]string {
 		key := string(b)
 		itemSlice := append(m[key],str)
 		m[key] = itemSlice
-
 	}
 	for _,val := range m {
 		ret = append(ret,val)
