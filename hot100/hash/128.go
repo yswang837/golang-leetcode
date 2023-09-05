@@ -1,9 +1,4 @@
-package main
-
-import (
-	"fmt"
-	"math"
-)
+//https://leetcode.cn/problems/longest-consecutive-sequence/description/?envType=study-plan-v2&envId=top-100-liked
 
 func longestConsecutive(nums []int) int {
 	if len(nums) == 0 {
@@ -15,7 +10,7 @@ func longestConsecutive(nums []int) int {
 	}
 
 	// 3.遍历每个数，执行并查操作
-	res := math.MinInt
+	res := 0
 	for num, _ := range hashMap {
 		if ok := hashMap[num-1]; ok {
 			continue
@@ -40,8 +35,4 @@ func maxInt(a int, b int) int {
 		return a
 	}
 	return b
-}
-
-func main() {
-	fmt.Println(longestConsecutive([]int{100, 4, 200, 1, 3, 2}))
 }
