@@ -1,5 +1,7 @@
 //https://leetcode.cn/problems/group-anagrams/description/?envType=study-plan-v2&envId=top-100-liked
 
+// 对str进行排序，将排序的结果记录到map里面，即可
+
 func groupAnagrams(strs []string) [][]string {
 	ret := [][]string{}
 	if len(strs) == 0 {

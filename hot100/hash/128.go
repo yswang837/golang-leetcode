@@ -1,5 +1,7 @@
 //https://leetcode.cn/problems/longest-consecutive-sequence/description/?envType=study-plan-v2&envId=top-100-liked
 
+// 解题要点：将切片放入map，找到每段的起始位置，从map里面取每段的值，两两就max就行。
+
 func longestConsecutive(nums []int) int {
 	if len(nums) == 0 {
 		return 0
