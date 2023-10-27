@@ -2,6 +2,8 @@
 
 // 解题要点：一次遍历，把num作为map的key，index作为value，可高效解题
 
+package main
+
 func twoSum(nums []int, target int) []int {
 	ret := []int{-1, -1}
 	if len(nums) == 0 {

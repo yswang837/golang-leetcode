@@ -2,6 +2,8 @@
 
 // 解题要点：将切片放入map，找到每段的起始位置，从map里面取每段的值，两两求max就行。
 
+package main
+
 func longestConsecutive(nums []int) int {
 	if len(nums) == 0 {
 		return 0
