@@ -2,39 +2,28 @@ package main
 
 import "fmt"
 
-func main() {
-	fmt.Println(QuickSort([]int{4, 2, 3, 4, 5, 65, 45, 5, 6, 67, 6, 3, 5, 43, 17}))
-}
-
-func QuickSort(nums []int) []int {
-	if len(nums) == 0 {
-		return nums
+func quickSort(arr []int) []int {
+	if len(arr) <= 1 {
+		return arr
 	}
-	quickSort(nums, 0, len(nums)-1)
-	return nums
-}
 
-func quickSort(nums []int, start, end int) {
-	if start < end {
-		povitIndex := partition(nums, start, end)
-		quickSort(nums, start, povitIndex-1)
-		quickSort(nums, povitIndex+1, end)
-	}
-}
-
-func partition(nums []int, start, end int) int {
-	povitVal := nums[end]
-	povitIndex := start
-	for j := start; j < end; j++ {
-		if nums[j] < povitVal {
-			swap(nums, j, povitIndex)
-			povitIndex++
+	pivot := arr[0]
+	var left, right []int
+	for _, v := range arr[1:] {
+		if v <= pivot {
+			left = append(left, v)
+		} else {
+			right = append(right, v)
 		}
 	}
-	swap(nums, povitIndex, end)
-	return povitIndex
+	left = quickSort(left)
+	right = quickSort(right)
+	return append(append(left, pivot), right...)
 }
 
-func swap(nums []int, i, j int) {
-	nums[i], nums[j] = nums[j], nums[i]
+func main() {
+	arr := []int{5, 3, 8, 6, 2, 7, 1, 4}
+	fmt.Println("Unsorted array:", arr)
+	arr = quickSort(arr)
+	fmt.Println("Sorted array:", arr)
 }
