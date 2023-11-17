@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	fmt.Println(binarySearch([]int{2, 3, 3, 4, 4, 5, 5, 5, 6, 6, 17, 43, 45, 65, 67}, 65))
+	fmt.Println(binarySearch([]int{2, 3, 3, 4, 4, 5, 5, 5, 6, 6, 17, 43, 45, 65, 67}, 17))
 }
 
 // Search 二分搜索最常用模板
@@ -19,9 +19,9 @@ func binarySearch(nums []int, target int) int {
 		if nums[middle] == target {
 			return middle
 		} else if nums[middle] > target {
-			right = middle
+			right = middle - 1
 		} else {
-			left = middle
+			left = middle + 1
 		}
 	}
 	return -2
