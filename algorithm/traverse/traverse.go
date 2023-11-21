@@ -1,10 +1,14 @@
 package traverse
 
+import "fmt"
+
 type ListNode struct {
-	Next *ListNode
+	Value int
+	Next  *ListNode
 }
 
 type TreeNode struct {
+	Value int
 	Left  *TreeNode
 	Right *TreeNode
 }
@@ -60,6 +64,7 @@ func traverse6(root *TreeNode) {
 		return
 	}
 	// 前序位置
+	fmt.Println(root.Value)
 	traverse6(root.Left)
 	// 中序位置
 	traverse6(root.Right)
