@@ -6,25 +6,28 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-var res int
-var depth int
-
-func maxDepth(root *TreeNode) int {
-	traverse(root)
-	return res
+type record struct {
+	res   int
+	depth int
 }
 
-func traverse(root *TreeNode) {
+func maxDepth(root *TreeNode) int {
+	r := &record{}
+	traverse(root, r)
+	return r.res
+}
+
+func traverse(root *TreeNode, r *record) {
 	if root == nil {
 		return
 	}
-	depth++
+	r.depth++
 	if root.Left == nil && root.Right == nil {
-		res = maxA(res, depth)
+		r.res = maxA(r.res, r.depth)
 	}
-	traverse(root.Left)
-	traverse(root.Right)
-	depth--
+	traverse(root.Left, r)
+	traverse(root.Right, r)
+	r.depth--
 }
 
 func maxA(i, j int) int {
