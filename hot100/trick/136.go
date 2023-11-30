@@ -1,0 +1,5 @@
+package trick
+
+func main() {
+
+}
