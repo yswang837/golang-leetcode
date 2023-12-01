@@ -17,16 +17,16 @@ func mirrorTree(root *TreeNode) *TreeNode {
 	if root == nil {
 		return nil
 	}
-	traverse1(root)
+	traverse(root)
 	return root
 }
-func traverse1(root *TreeNode) {
+func traverse(root *TreeNode) {
 	if root == nil {
 		return
 	}
 	root.Left, root.Right = root.Right, root.Left
-	traverse1(root.Left)
-	traverse1(root.Right)
+	traverse(root.Left)
+	traverse(root.Right)
 
 	return
 }
