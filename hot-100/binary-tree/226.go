@@ -1,5 +1,32 @@
 package binary_tree
 
-func main() {
+// 思路1：动态规划，充分利用遍历函数invertTree的返回值
+func invertTree(root *TreeNode) *TreeNode {
+	if root == nil {
+		return nil
+	}
+	left := invertTree(root.Left)
+	right := invertTree(root.Right)
+	root.Left = right
+	root.Right = left
+	return root
+}
 
+// 思路2：回溯算法，定义无返回值的traverse
+func mirrorTree(root *TreeNode) *TreeNode {
+	if root == nil {
+		return nil
+	}
+	traverse1(root)
+	return root
+}
+func traverse1(root *TreeNode) {
+	if root == nil {
+		return
+	}
+	root.Left, root.Right = root.Right, root.Left
+	traverse1(root.Left)
+	traverse1(root.Right)
+
+	return
 }
