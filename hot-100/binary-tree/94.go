@@ -17,3 +17,21 @@ func inorderTraversal(root *TreeNode) []int {
 
 	return res
 }
+
+func inorderTraversal(root *TreeNode) []int {
+	if root == nil {
+		return nil
+	}
+	var ret []int
+	var f func(root *TreeNode)
+	f = func(root *TreeNode) {
+		if root == nil {
+			return
+		}
+		f(root.Left)
+		ret = append(ret, root.Val)
+		f(root.Right)
+	}
+	f(root)
+	return ret
+}

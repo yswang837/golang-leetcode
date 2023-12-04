@@ -16,6 +16,29 @@ func maxDepth(root *TreeNode) int {
 	}
 }
 
+// 写法2
+func maxDepth(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	ret := 0
+	var f func(root *TreeNode) int
+	f = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		left := f(root.Left)
+		right := f(root.Right)
+		if left >= right {
+			ret = left + 1
+		} else {
+			ret = right + 1
+		}
+		return ret
+	}
+	return f(root)
+}
+
 // 思路2
 // 递归地遍历一遍树(并未划分子问题)，得到问题答案，这是回溯算法的思想，借助了traverse函数，记录了额外的遍历值，如res和depth，不需要有返回值，给该函数传递指针就行
 func maxDepth(root *TreeNode) int {
@@ -42,4 +65,27 @@ func maxInt(i, j int) int {
 		return i
 	}
 	return j
+}
+
+// 思路2-写法2
+func maxDepth(root *TreeNode) int {
+	if root == nil {
+		return 0
+	}
+	ret, depth := 0, 0
+	var f func(root1 *TreeNode)
+	f = func(root1 *TreeNode) {
+		if root1 == nil {
+			return
+		}
+		depth++
+		if root1.Left == nil && root1.Right == nil {
+			ret = maxInt(ret, depth)
+		}
+		f(root1.Left)
+		f(root1.Right)
+		depth--
+	}
+	f(root)
+	return ret
 }
