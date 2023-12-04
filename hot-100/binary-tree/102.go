@@ -1,31 +1,31 @@
 package binary_tree
 
 func levelOrder(root *TreeNode) [][]int {
-	var res [][]int
 	if root == nil {
-		return res
+		return nil
 	}
-	var q []*TreeNode
-	q = append(q, root)
-	for len(q) > 0 {
-		length := len(q)
+	var ret [][]int
+	var queue []*TreeNode
+	queue = append(queue, root)
+	for len(queue) > 0 {
 		var level []int
+		length := len(queue) // queue的长度会变，需要用变量单独记录，不然level的结果不对
 		for i := 0; i < length; i++ {
-			node := q[0]
-			q = q[1:]
+			node := queue[0]
+			queue = queue[1:]
 			level = append(level, node.Val)
 			if node.Left != nil {
-				q = append(q, node.Left)
+				queue = append(queue, node.Left)
 			}
 			if node.Right != nil {
-				q = append(q, node.Right)
+				queue = append(queue, node.Right)
 			}
 		}
 		if len(level) > 0 {
-			res = append(res, level)
+			ret = append(ret, level)
 		}
 	}
-	return res
+	return ret
 }
 
 func main() {
