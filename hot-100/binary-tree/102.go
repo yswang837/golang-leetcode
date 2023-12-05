@@ -27,7 +27,3 @@ func levelOrder(root *TreeNode) [][]int {
 	}
 	return ret
 }
-
-func main() {
-
-}
