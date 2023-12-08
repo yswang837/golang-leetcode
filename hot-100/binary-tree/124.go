@@ -13,7 +13,7 @@ func maxPathSum(root *TreeNode) int {
 		rightGain := maxInt(maxGain(node.Right), 0)
 		currentSum := node.Val + leftGain + rightGain
 		maxSum = maxInt(maxSum, currentSum)
-		return node.Val + max(leftGain, rightGain)
+		return node.Val + maxInt(leftGain, rightGain)
 	}
 	maxGain(root)
 	return maxSum
