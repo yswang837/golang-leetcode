@@ -7,15 +7,14 @@ type TreeNode struct {
 }
 
 func inorderTraversal(root *TreeNode) []int {
-	var res []int
 	if root == nil {
-		return res
+		return nil
 	}
-	res = append(res, inorderTraversal(root.Left)...)
-	res = append(res, root.Val)
-	res = append(res, inorderTraversal(root.Right)...)
-
-	return res
+	var ret []int
+	ret = append(ret, inorderTraversal(root.Left)...)
+	ret = append(ret, root.Val)
+	ret = append(ret, inorderTraversal(root.Right)...)
+	return ret
 }
 
 func inorderTraversal(root *TreeNode) []int {
